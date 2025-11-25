@@ -29,6 +29,6 @@ services:
       networks:
         - backend-proxy
 
-    networks:
+networks:
       backend-proxy:
         external: true
