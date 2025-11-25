@@ -41,7 +41,7 @@ jobs:
 
                 if docker ps | grep express-healthcheck-blue; then
                     TARGET=green
-                    STOP=express-healthcheck-blu
+                    STOP=express-healthcheck-blue
                 elif docker ps | grep express-healthcheck-green; then
                     TARGET=blue
                     STOP=express-healthcheck-green
