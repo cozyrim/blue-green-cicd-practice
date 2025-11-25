@@ -40,18 +40,19 @@ jobs:
                 cd /home/${{ secrets.SERVER_USER }}/bluegreen
 
                 if docker ps | grep express-healthcheck-blue; then
-                    TARGET=green
-                    STOP=express-healthcheck-blue
+                  TARGET=green
+                  STOP=express-healthcheck-blue
                 elif docker ps | grep express-healthcheck-green; then
-                    TARGET=blue
-                    STOP=express-healthcheck-green
+                  TARGET=blue
+                  STOP=express-healthcheck-green
                 else
-                    TARGET=blue
-                    STOP=none
+                  TARGET=blue
+                  STOP=none
                 fi
 
                 echo "Deploying to: \$TARGET"
                 docker compose pull express-healthcheck-\$TARGET
+                docker compose up -d express-healthcheck-\$TARGET
 
                 if [ "\$STOP" != "none" ]\; then]
                   echo "Running health check..."
